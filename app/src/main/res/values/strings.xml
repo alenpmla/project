@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Project</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="login_button_text">Login</string>
+    <string name="login_page_title">Enter Your Details</string>
+    <string name="empty_notify">Name and phone number cannot be null</string>
+    <string name="register_button_text">Register(For Service centers)</string>
+    <string name="service_name_hint">Service Center Name</string>
+    <string name="place_hint">Place</string>
+    <string name="district_hint">District</string>
+    <string name="pin_hint">Pin</string>
+    <string name="register_btn_text">Register</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="heavy">Heavy</string>
+    <string name="four_wheeler">Four Wheeler</string>
+    <string name="three_wheeler">Three Wheeler</string>
+    <string name="two_wheeler">Two Wheeler</string>
+    <string name="licence">licence</string>
+    <string name="phone_number">Phone Number</string>
+
+</resources>
