@@ -19,6 +19,9 @@ public class FirstPage extends AppCompatActivity implements View.OnClickListener
         login.setOnClickListener(this);
         Button register=(Button)findViewById(R.id.registerfp);
         register.setOnClickListener(this);
+
+        Button domainset=(Button)findViewById(R.id.setdomain);
+        domainset.setOnClickListener(this);
     }
 
     @Override
@@ -36,6 +39,12 @@ public class FirstPage extends AppCompatActivity implements View.OnClickListener
                 startActivity(registerpage);
                 overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
                 break;
+            case R.id.setdomain:
+                Intent setdomain=new Intent(FirstPage.this,Settings.class);
+                startActivity(setdomain);
+                overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
+                break;
+
             default:
 
         }

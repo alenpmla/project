@@ -17,6 +17,19 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.TimeoutError;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int PICK_CONTACT=100;
@@ -27,11 +40,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
 
+
+
         Button loginbutton=(Button)findViewById(R.id.loginbutton);
         loginbutton.setOnClickListener(this);
 
         ImageButton imageButton=(ImageButton)findViewById(R.id.piccontact);
         imageButton.setOnClickListener(this);
+
+
+
     }
 
 
@@ -104,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             editor.putString("key_name",name.getText().toString());
             editor.putString("key_number",phonenumber.getText().toString());
             editor.commit();
-
+            loginnet();
 
             Intent mapintent=new Intent(MainActivity.this,MapsActivity.class);
             startActivity(mapintent);
@@ -112,6 +130,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+
+    public  void loginnet(){
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("appdata",MODE_PRIVATE);
+      String  domainstr=sharedPreferences.getString("domain","128.199.218.126");
+
+
+        // final ProgressDialog progressDialognew=new ProgressDialog(this);
+        //  progressDialognew.show();
+
+
+        String tag_json_obj = "json_obj_req";
+
+        String url = "http://"+domainstr+"/login";
+
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                Toast.makeText(getApplicationContext(),response,Toast.LENGTH_SHORT).show();
+                //  progressDialognew.hide();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                //   progressDialognew.hide();
+                if (volleyError instanceof TimeoutError) {
+                    //   progressDialognew.hide();
+                }
+            }
+        }) {
+            @Override
+            public Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<>();
+
+                EditText name=(EditText) findViewById(R.id.nametext);
+                EditText phonenumber=(EditText) findViewById(R.id.phonenumbertext);
+                headers.put("name",name.getText().toString() );
+                headers.put("phone",phonenumber.getText().toString() );
+
+                return headers;
+            }
+
+            @Override
+            public Request.Priority getPriority() {
+                return Request.Priority.IMMEDIATE;
+            }
+        };
+        AppController.getInstance().addToRequestQueue(stringRequest);
+
+
+    }
+
 
     @Override
     public void onBackPressed() {

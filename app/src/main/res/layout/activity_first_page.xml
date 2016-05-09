@@ -20,5 +20,10 @@
         android:layout_height="wrap_content"
         android:text="@string/register_button_text"
         android:id="@+id/registerfp" />
+    <Button
+        android:id="@+id/setdomain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Domain"/>
 
 </LinearLayout>
