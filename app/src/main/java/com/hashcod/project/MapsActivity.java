@@ -170,6 +170,7 @@ public  GoogleMap currentlocationgooglemap;
             public void onClick(View v) {
                 radiusstr="20";
                 getnearestpositionspicradius();
+
             }
         });
 
@@ -471,10 +472,21 @@ workshopAdapter.notifyDataSetChanged();
                     mMap.addMarker(new MarkerOptions().position(latandlong).title("Current Location"));
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(latandlong));
 
-                    CameraPosition cameraPosition = new CameraPosition.Builder().target(latandlong).zoom(14.0f).build();
-                    CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
-                    mMap.moveCamera(cameraUpdate);
-
+                    if(radiusstr.contains("20")){
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(latandlong).zoom(14.0f).build();
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+                        mMap.moveCamera(cameraUpdate);
+                    }
+                 else if(radiusstr.contains("50")){
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(latandlong).zoom(10f).build();
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+                        mMap.moveCamera(cameraUpdate);
+                    }
+                    else if(radiusstr.contains("100")){
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(latandlong).zoom(8f).build();
+                        CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(cameraPosition);
+                        mMap.moveCamera(cameraUpdate);
+                    }
 
                     workshopAdapter.notifyDataSetChanged();
                 } catch (JSONException ignored) {
