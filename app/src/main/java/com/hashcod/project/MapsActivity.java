@@ -333,7 +333,7 @@ public  GoogleMap currentlocationgooglemap;
     public  void getnearestpositionspic(){
 
         detailclassarray.clear();
-
+workshopAdapter.notifyDataSetChanged();
 
 
      // final ProgressDialog progressDialognew=new ProgressDialog(this);
@@ -513,7 +513,7 @@ public  GoogleMap currentlocationgooglemap;
     public  void getnearestpositions(){
 
         detailclassarray.clear();
-
+workshopAdapter.notifyDataSetChanged();
 
 
         // final ProgressDialog progressDialognew=new ProgressDialog(this);
