@@ -5,6 +5,7 @@ package com.hashcod.project;
  */
 public class DetailsClass {
 
+    //
     public String getName() {
         return name;
     }
