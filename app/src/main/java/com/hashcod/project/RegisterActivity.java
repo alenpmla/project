@@ -2,8 +2,10 @@ package com.hashcod.project;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.SubMenuBuilder;
@@ -112,9 +114,35 @@ LatLng latLng=place.getLatLng();
             public void onResponse(String response) {
 
                 //  progressDialognew.hide();
-                Toast.makeText(getApplicationContext(),"Registed",Toast.LENGTH_SHORT).show();
-System.out.print("Register resposne"+response);
+                Toast.makeText(getApplicationContext(),"Registered",Toast.LENGTH_SHORT).show();
+                      System.out.print("Register response"+response);
                 progressDialog.hide();
+
+                AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext()).create();
+
+                // Setting Dialog Title
+                alertDialog.setTitle("Success");
+
+                // Setting Dialog Message
+                alertDialog.setMessage("Press ok to go back");
+
+                // Setting Icon to Dialog
+                alertDialog.setIcon(R.mipmap.ic_launcher);
+
+                alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+
+                        finish();
+                    }
+                });
+
+                // Setting OK Button
+
+
+
+                alertDialog.show();
             }
         }, new Response.ErrorListener() {
             @Override

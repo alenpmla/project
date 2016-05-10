@@ -21,14 +21,26 @@ public class Settings extends AppCompatActivity  {
         savesettingsbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 EditText domainname=(EditText)findViewById(R.id.domain);
 
-                SharedPreferences sharedPreferences = getSharedPreferences("appdata",MODE_PRIVATE);
-                SharedPreferences.Editor editor=sharedPreferences.edit();
-                editor.putString("domain",domainname.getText().toString());
-                editor.commit();
+                if(domainname.getText().toString()!=null||domainname.getText().toString()!=""){
+                    SharedPreferences sharedPreferences = getSharedPreferences("appdata",MODE_PRIVATE);
+                    SharedPreferences.Editor editor=sharedPreferences.edit();
+                    editor.putString("domain",domainname.getText().toString());
+                    editor.commit();
 
-                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Domain Saved",Toast.LENGTH_SHORT).show();
+                    onBackPressed();
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Cannot be null. Please try again",Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
             }
         });
 
