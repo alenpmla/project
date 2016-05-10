@@ -13,11 +13,11 @@ import java.util.ArrayList;
  * Created by Alen on 08-May-16.
  */
 public class WorkshopAdapter extends BaseAdapter {
-    ArrayList<WorkShopClass>arrayList=new ArrayList<>();
+    ArrayList<DetailsClass>arrayList=new ArrayList<>();
     Context context;
     LayoutInflater layoutInflater;
 
-    public WorkshopAdapter(Context context, ArrayList<WorkShopClass>arrayList) {
+    public WorkshopAdapter(Context context, ArrayList<DetailsClass>arrayList) {
         this.context=context;
         this.arrayList=arrayList;
         layoutInflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -47,9 +47,9 @@ public class WorkshopAdapter extends BaseAdapter {
         TextView desc=(TextView)rootView.findViewById(R.id.descsinge);
         TextView distance=(TextView)rootView.findViewById(R.id.distance);
 
-        title.setText(arrayList.get(position).getTitle());
-        desc.setText(arrayList.get(position).getDescription());
-        distance.setText(arrayList.get(position).getDistance());
+        title.setText(arrayList.get(position).getName());
+        desc.setText(arrayList.get(position).getAddress());
+        distance.setText(arrayList.get(position).getDistance()+" Km's Away");
 
         return rootView;
     }

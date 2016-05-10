@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <LinearLayout
+
         android:gravity="center"
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -28,34 +29,52 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <EditText
+        android:id="@+id/servicecentername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/service_name_hint"/>
     <EditText
+        android:id="@+id/placeservice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/place_hint"/>
     <EditText
-
+        android:id="@+id/districtservice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/district_hint"/>
     <EditText
+        android:id="@+id/pinservice"
         android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/pin_hint"/>
+        <EditText
+            android:id="@+id/openhourset"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Open Hours"/>
 
         <EditText
+            android:id="@+id/licenseservice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/licence"/>
         <EditText
+            android:id="@+id/phoneservicescenter"
             android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/phone_number"/>
+
+        <Button
+            android:id="@+id/chooselocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose Location"/>
     <TextView
+
         android:padding="20dp"
         android:textColor="@android:color/black"
         android:gravity="center"
@@ -124,6 +143,7 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/registerbtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/register_btn_text"/>
